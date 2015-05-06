@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-csp ng-app="extension">
+<head>
+  <meta charset="UTF-8">
+  <title>SearchWorlde</title>
+</head>
+<body ng-controller="MainController as main">
+  <div ng-controller="CloudLayoutController as cloudLayout">
+    <svg style="width:800px; height:600px">
+      <g ng-attr-transform="{{cloudLayout.frameTransform()}}" >
+        <text ng-repeat="item in cloudLayout.words"
+          ng-attr-transform="{{cloudLayout.transformer(item)}}"
+          ng-attr-fill="black"
+          text-anchor="middle"
+          ng-style="cloudLayout.style(item)"
+          >
+          {{item.text}}
+        </text>
+      </g>
+    </svg>
+  </div>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/d3.layout.cloud/d3.layout.cloud.js"></script>
+<script src="scripts/index.js"></script>
+<script src="scripts/ng/stopwords.js"></script>
+<script src="scripts/ng/history.service.js"></script>
+<script src="scripts/ng/cloudLayout.controller.js"></script>
+</body>
+</html>
